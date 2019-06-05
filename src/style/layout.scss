@@ -1,0 +1,42 @@
+.app-wrapper{
+  display: flex;
+  flex-direction: column;
+  width:$full;
+  height: 100vh;
+  overflow: hidden;
+
+  .container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex:1;
+
+    .sidebar-container {
+      min-width: 15%;
+
+      .scrollbar-wrapper {
+        height: calc(100% + 15px); //隐藏底部原生滚动条，margin-right隐藏右侧原生滚动条
+
+        & .el-scrollbar__view {
+          height: 100%;
+          .el-menu{
+            height: inherit;
+          }
+        }
+      }
+    }
+
+    .main-container{
+      min-width: 85%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+  }
+  .footer-container{
+    color: white;
+    text-align: center;
+    background: rgb(63, 66, 69);
+  }
+
+}

@@ -1,0 +1,17 @@
+/* 变量 */
+$full:100%;
+$zero: 0;
+
+@import './layout';
+
+body,html{
+  padding: $zero;
+  margin: $zero;
+  .el-table {
+    .el-table__header-wrapper {
+      th {
+        display: table-cell!important;
+      }
+    }
+  }
+}
