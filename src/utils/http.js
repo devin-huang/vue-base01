@@ -2,9 +2,9 @@
  *  * Create By:Devin on  Wednesday December 19th 2018
  */
 
-import Vue from 'vue';
-import axios from 'axios';
-import { Message } from 'element-ui';
+import Vue from 'vue'
+import axios from 'axios'
+import { Message } from 'element-ui'
 
 Vue.component(Message)
 Vue.prototype.$message = Message
@@ -22,8 +22,8 @@ let http = axios.create({
 
 // SET TOKEN
 function getCookie (cname) {
-  var name = cname + '=';
-  var ca = document.cookie.split(';');
+  var name = cname + '='
+  var ca = document.cookie.split(';')
   for (var i = 0; i < ca.length; i++) {
     var c = ca[i]
     while (c.charAt(0) == ' ') c = c.substring(1)
@@ -31,7 +31,7 @@ function getCookie (cname) {
       return c.substring(name.length, c.length)
     }
   }
-  return '';
+  return ''
 }
 
 // SET AXIOS METHODS
@@ -80,14 +80,14 @@ function _h (method) {
       })
       .catch(error => {
         console.log('request error:', error)
-        result.error = error || new Error('request error');
+        result.error = error || new Error('request error')
         result.exception = error.exception || null
-        result.message = error.message || 'request error';
+        result.message = error.message || 'request error'
         result.code = error.status
 
         Vue.prototype.$message && Vue.prototype.$message.error(result.message)
         return Promise.resolve(result)
-      });
+      })
   }
 }
 

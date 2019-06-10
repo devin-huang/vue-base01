@@ -7,14 +7,17 @@
         <template slot="title">
           <!-- 设置根标题也自动跳转对应路由 -->
           <!--<router-link :to="`${item.path}/${item.children[0].path}`">-->
-            <!--<i class="el-icon-location"></i>-->
-            <!--<span> {{ item.name }} </span>-->
+          <!--<i class="el-icon-location"></i>-->
+          <!--<span> {{ item.name }} </span>-->
           <!--</router-link>-->
           <!--常规-->
           <i class="el-icon-location"></i>
           <span> {{ item.name }} </span>
         </template>
-        <el-menu-item-group :key="index" v-for="(child, index) in item.children">
+        <el-menu-item-group
+          :key="index"
+          v-for="(child, index) in item.children"
+        >
           <template slot="title"
             >Group 1</template
           >

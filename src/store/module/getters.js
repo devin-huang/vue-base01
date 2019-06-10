@@ -7,4 +7,4 @@ const getters = {
   addRouters: state => state.Permission.addRouters
 }
 
-export default getters;
+export default getters

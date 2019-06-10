@@ -1,8 +1,8 @@
 /**
  * Created By Devin on 2018/12/19
  */
-import * as types from '../mutation-type';
-import Common from '../actions/Common';
+import * as types from '../mutation-type'
+import Common from '../actions/Common'
 
 const common = {
   namespaced: true,
@@ -29,4 +29,4 @@ const common = {
   }
 }
 
-export default common;
+export default common

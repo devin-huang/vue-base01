@@ -1,8 +1,8 @@
 /**
  * Created By Devin on 2018/12/19
  */
-import * as types from '../mutation-type';
-import Address from '../actions/Address';
+import * as types from '../mutation-type'
+import Address from '../actions/Address'
 
 const address = {
   namespaced: true,
@@ -13,4 +13,4 @@ const address = {
   }
 }
 
-export default address;
+export default address

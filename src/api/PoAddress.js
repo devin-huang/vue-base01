@@ -2,7 +2,7 @@
  * Created By devin on 2018/12/19
  */
 
-import { get, post, Delete } from '../utils/https';
+import { get, post, Delete } from '../utils/https'
 
 /**
  * Get Device Series List By Brand Id

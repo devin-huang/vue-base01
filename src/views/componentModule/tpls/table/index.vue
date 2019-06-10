@@ -11,7 +11,7 @@
         :data-size="tableData.length"
       >
         <el-table-column type="selection"></el-table-column>
-        <el-table-column label="Index" >
+        <el-table-column label="Index">
           <template slot-scope="scope">
             <div>
               <i class="el-icon-time"></i>
@@ -19,7 +19,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="ID" >
+        <el-table-column label="ID">
           <template slot-scope="scope">
             <div>
               <i class="el-icon-time"></i>
@@ -27,7 +27,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="姓名" >
+        <el-table-column label="姓名">
           <template slot-scope="scope">
             <div>
               <el-popover trigger="hover" placement="top">
@@ -39,12 +39,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作" >
+        <el-table-column label="操作">
           <template slot-scope="scope">
             <div>
               <el-button-group>
-                <el-button size="mini" >编辑</el-button>
-                <el-button size="mini" type="danger" >删除</el-button>
+                <el-button size="mini">编辑</el-button>
+                <el-button size="mini" type="danger">删除</el-button>
               </el-button-group>
             </div>
           </template>
@@ -59,14 +59,15 @@
         :page-sizes="[15, 30, 60, 90]"
         :page-size="15"
         layout="total, sizes, prev, pager, next, jumper"
-        :total="page.total">
+        :total="page.total"
+      >
       </el-pagination>
     </div>
   </page>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import { mapState, mapActions } from 'vuex';
 export default {
   name: 'index',
   data () {
@@ -108,12 +109,13 @@ export default {
         pageNum: (param && param.num) || this.page.num,
         pageSize: (param && param.size) || this.page.size
       }
-      let {error, message, data} = await this.$api.common.findDeviceList(params)
+      let { error, message, data } = await this.$api.common.findDeviceList(
+        params
+      )
       this.tableData = data.list
       this.page.total = data.total
       if (error) this.$message.error(message)
       else this.$message.success(message)
-
     },
     handleSizeChange (size) {
       this.getTableData({
@@ -135,7 +137,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  section {
-    height: 250px;
-  }
+section {
+  height: 250px;
+}
 </style>

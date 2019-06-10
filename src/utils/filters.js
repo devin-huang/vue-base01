@@ -3,16 +3,16 @@ const filters = {
   /* places 保留小数位数 ,symbol货币符号 */
   currency: (value, places, symbol, thousand, decimal) => {
     if (!value) {
-      return '';
+      return ''
     }
     value = value.toString()
     return formatMoney(value, symbol, places, thousand, decimal)
     function formatMoney (number, symbol, places, thousand, decimal) {
       number = number || 0
       places = !isNaN((places = Math.abs(places))) ? places : 2
-      symbol = symbol !== undefined ? symbol : '$';
-      thousand = thousand || ',';
-      decimal = decimal || '.';
+      symbol = symbol !== undefined ? symbol : '$'
+      thousand = thousand || ','
+      decimal = decimal || '.'
       var negative = number < 0 ? '-' : '',
         i =
           parseInt((number = Math.abs(+number || 0).toFixed(places)), 10) + '',
@@ -37,7 +37,7 @@ Object.defineProperty(filters, 'install', {
   value: (Vue, Option) => {
     Object.keys(filters).forEach(key => {
       Vue.filter(key, filters[key])
-    });
+    })
     Vue.$filters = filters
     Vue.prototype.$filters = filters
   }

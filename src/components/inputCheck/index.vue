@@ -26,8 +26,8 @@
 export default {
   name: 'index',
   props: {
-    data: {type: [String, Number]},
-    regType: {type: RegExp, default: () => /^[1-9]\d*/}
+    data: { type: [String, Number] },
+    regType: { type: RegExp, default: () => /^[1-9]\d*/ }
   },
   data () {
     return {
@@ -44,9 +44,9 @@ export default {
   },
   methods: {
     handleStrChange () {
-      let val = this.val ? this.val : ''
+      let val = this.val ? this.val : '';
       let reg = new RegExp(this.regType)
-      return (this.val = val.match(reg) ? val.match(reg)[0] : '')
+      return (this.val = val.match(reg) ? val.match(reg)[0] : '');
     },
     handleChange () {
       if (this.regType) {

@@ -1,17 +1,40 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true
+  'env': {
+    'browser': true,
+    'commonjs': true,
+    'es6': true
   },
-  extends: ["plugin:vue/essential", "@vue/prettier", 'standard'],
-  parserOptions: {
-    parser: "babel-eslint"
+  'extends': [
+    'plugin:vue/essential',
+    'eslint:recommended',
+    'standard'
+  ],
+  'parserOptions': {
+    parser: 'babel-eslint',
+    'ecmaFeatures': {
+      'jsx': true
+    },
+    'ecmaVersion': 2015,
+    'sourceType': 'module'
   },
-  // add your custom rules here
-  rules: {
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  'rules': {
+    'indent': [
+      'error',
+      2
+    ],
+    'linebreak-style': [
+      'error',
+      'windows'
+    ],
+    'quotes': [
+      'error',
+      'single'
+    ],
+    'semi': [
+      'error',
+      'never'
+    ],
+    'no-console': 'off',
+    'eqeqeq': 'warn'
   }
-};
+}

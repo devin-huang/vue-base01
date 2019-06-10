@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
 
 Vue.use(Router)
 
@@ -17,7 +17,7 @@ export const asyncRouterMap = {
       path: '/',
       // name: 'Home',
       component: Home,
-      redirect: '/component',
+      redirect: '/component'
       // meta: { title: 'home', icon: 'example' }
     },
     {
@@ -31,8 +31,7 @@ export const asyncRouterMap = {
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () =>
-        import('./views/apiModule/index.vue')
+      component: () => import('./views/apiModule/index.vue')
     },
     {
       path: '/route',

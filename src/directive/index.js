@@ -9,4 +9,4 @@ export default {
     Vue.directive('click-out-side', clickOutSide)
     Vue.directive('lazy-render', lazyRender)
   }
-};
+}

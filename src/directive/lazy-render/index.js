@@ -29,10 +29,14 @@ export default {
       let showRowNum = Math.round(selectWrap.clientHeight / rowHeight)
       const createElementTR = document.createElement('tr')
       // 注意：在resize中会有scroll不精准，并不影响实际使用
-      let createElementTRHeight = (dataSize - showRowNum - spillDataNum) * rowHeight
-      createElementTR.setAttribute('style', `height: ${createElementTRHeight}px;`)
+      let createElementTRHeight =
+        (dataSize - showRowNum - spillDataNum) * rowHeight
+      createElementTR.setAttribute(
+        'style',
+        `height: ${createElementTRHeight}px;`
+      )
       selectTbody.append(createElementTR)
-      
+
       // 监听滚动后事件
       selectWrap.addEventListener('scroll', function () {
         let topPx = this.scrollTop - spillDataNum * rowHeight
@@ -45,7 +49,14 @@ export default {
           topNum = topPx = 0
         }
         selectTbody.setAttribute('style', `transform: translateY(${topPx}px)`)
-        createElementTR.setAttribute('style', `height: ${createElementTRHeight - topPx > 0 ? createElementTRHeight - topPx : 0}px;`)
+        createElementTR.setAttribute(
+          'style',
+          `height: ${
+            createElementTRHeight - topPx > 0
+              ? createElementTRHeight - topPx
+              : 0
+          }px;`
+        )
         setRowDisableNone(topNum, showRowNum, binding)
       })
     })

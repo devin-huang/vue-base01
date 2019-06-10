@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 export default {
   name: 'app-container',
   methods: {
@@ -14,13 +14,13 @@ export default {
       window.addEventListener('load', () => {
         let mainHeight = this.$el.clientHeight
         this.setClientHeight(mainHeight)
-      })
+      });
     },
     resizeMainHeight () {
       window.addEventListener('resize', () => {
         let mainHeight = this.$el.clientHeight
         this.setClientHeight(mainHeight)
-      })
+      });
     }
   },
   mounted () {

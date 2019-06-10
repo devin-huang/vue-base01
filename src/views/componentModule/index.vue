@@ -20,15 +20,14 @@
 </template>
 
 <script>
-import Tab from '@/components/CustomeTab'
-import dnUtils from '@/views/componentModule/tpls/utils'
-import dnComponent from '@/views/componentModule/tpls/component'
-import dnTable from '@/views/componentModule/tpls/table'
-
+import Tab from '@/components/CustomeTab';
+import dnUtils from '@/views/componentModule/tpls/utils';
+import dnComponent from '@/views/componentModule/tpls/component';
+import dnTable from '@/views/componentModule/tpls/table';
 
 export default {
   name: 'index',
-  components: {Tab, dnUtils, dnComponent, dnTable},
+  components: { Tab, dnUtils, dnComponent, dnTable },
   data () {
     return {
       activeName: 'dnUtils',
@@ -51,16 +50,16 @@ export default {
         {
           name: 'Clothing',
           data: [
-            {name: 'adidas', color: 'blue', size: 24},
-            {name: 'nike', color: 'yellow', size: 12},
-            {name: 'under', color: 'white', size: 50}
+            { name: 'adidas', color: 'blue', size: 24 },
+            { name: 'nike', color: 'yellow', size: 12 },
+            { name: 'under', color: 'white', size: 50 }
           ]
         },
         {
           name: 'car',
           data: [
-            {name: 'Toyota', type: 'small', seat: 5, color: 'black'},
-            {name: 'HONDA', type: 'big', seat: 7, color: 'gold'}
+            { name: 'Toyota', type: 'small', seat: 5, color: 'black' },
+            { name: 'HONDA', type: 'big', seat: 7, color: 'gold' }
           ]
         }
       ]

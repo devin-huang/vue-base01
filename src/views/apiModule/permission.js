@@ -5,7 +5,7 @@ export default {
     }
   },
   async created () {
-    this.operationPermission = await this.$permission('api:edit')
-    console.log(this.operationPermission, 'permission')
+    this.operationPermission = await this.$permission('api:edit');
+    console.log(this.operationPermission, 'permission');
   }
-}
+};

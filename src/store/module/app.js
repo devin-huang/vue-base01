@@ -1,8 +1,8 @@
 /**
  * Created By Devin on 2018/12/25
  */
-import Cookies from 'js-cookie';
-import * as types from '../mutation-type';
+import Cookies from 'js-cookie'
+import * as types from '../mutation-type'
 
 const app = {
   namespaced: true,

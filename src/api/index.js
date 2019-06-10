@@ -1,5 +1,5 @@
-import * as common from './PoCommon';
-import * as address from './PoAddress';
+import * as common from './PoCommon'
+import * as address from './PoAddress'
 
 const api = {
   common,
