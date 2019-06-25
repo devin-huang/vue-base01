@@ -11,14 +11,6 @@
         :data-size="tableData.length"
       >
         <el-table-column type="selection"></el-table-column>
-        <el-table-column label="Index">
-          <template slot-scope="scope">
-            <div>
-              <i class="el-icon-time"></i>
-              <span style="margin-left: 10px">{{ scope.$index }}</span>
-            </div>
-          </template>
-        </el-table-column>
         <el-table-column label="ID">
           <template slot-scope="scope">
             <div>

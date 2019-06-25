@@ -34,7 +34,7 @@ export default {
   props: {
     msg: String
   },
-  data() {
+  data () {
     return {
       value1: null,
       value2: null,
