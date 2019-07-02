@@ -5,12 +5,13 @@
         stripe
         border
         v-lazy-render="handelLoadmore"
+        :header-row-style="headerRowStyle"
         style="width: 100%"
         :height="tableHeight - 70"
         :data="filteredData"
         :data-size="tableData.length"
       >
-        <el-table-column type="selection"></el-table-column>
+        <el-table-column type="selection" fixed></el-table-column>
         <el-table-column label="ID">
           <template slot-scope="scope">
             <div>
@@ -31,7 +32,9 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column label="操作"
+                         fixed="right"
+        >
           <template slot-scope="scope">
             <div>
               <el-button-group>
@@ -59,7 +62,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'index',
   data () {
@@ -68,10 +71,10 @@ export default {
       page: {
         total: null,
         num: 1,
-        size: 15
+        size: 30
       },
-      currentStartIndex: 0,
-      currentEndIndex: 15
+      currentStartIndex: 1,
+      currentEndIndex: 30
     }
   },
   computed: {
@@ -95,6 +98,9 @@ export default {
     handelLoadmore (currentStartIndex, currentEndIndex) {
       this.currentStartIndex = currentStartIndex
       this.currentEndIndex = currentEndIndex
+    },
+    headerRowStyle () {
+      return "height:60px"
     },
     async getTableData (param) {
       let params = {
