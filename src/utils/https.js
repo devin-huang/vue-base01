@@ -25,9 +25,34 @@ axios.defaults.headers['Authorization'] = 'token'
 //   'timezone': new Date().getTimezoneOffset()
 // }
 
+// 过滤重复操作
+let pending = []
+let cancelToken = axios.CancelToken
+let removePending = (config) => {
+  for (let p in pending) {
+    if (pending[p].url === config.url + '&' + config.method) {
+      // 执行取消操作
+      pending[p].cancel()
+      // 把这条记录从数组中移除
+      pending.splice(p, 1)
+    }
+  }
+}
+
 // 请求拦截器
 axios.interceptors.request.use(
   config => {
+    // 发送请求前取消重复操作
+    removePending(config)
+    config.cancelToken = new cancelToken((c) => {
+      pending.push({ url: config.url + '&' + config.method, cancel: c })
+    })
+    
+    console.log('axios 发送请求之前')
+    // 发送请求之前禁用所部INPUT
+    // let inputs = document.querySelectorAll('.el-form input, .el-form textarea, .el-form button')
+    // inputs.forEach(e => e.setAttribute("disabled", "disabled"))
+    
     // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
     // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
     const token = store.state.token
@@ -42,7 +67,9 @@ axios.interceptors.request.use(
 // 响应拦截器
 axios.interceptors.response.use(
   response => {
+    removePending(response.config)
     if (response.status === 200) {
+      console.log(response.status, 'axios 响应之后')
       // response 具体返回HTTP状态码请查看后端
       return Promise.resolve(response)
     } else {

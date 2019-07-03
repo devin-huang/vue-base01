@@ -1,13 +1,14 @@
 <template>
   <page>
     <div>
+      <el-button type="primary" @click="getTableData">--处理重复多次异步请求--</el-button>
       <el-table
         stripe
         border
         v-lazy-render="handelLoadmore"
         :header-row-style="headerRowStyle"
         style="width: 100%"
-        :height="tableHeight - 70"
+        :height="tableHeight - 110"
         :data="filteredData"
         :data-size="tableData.length"
       >
