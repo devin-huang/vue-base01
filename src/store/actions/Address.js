@@ -1,8 +1,7 @@
 /**
  * Created By Devin on 2018/12/19
  */
-import * as types from '../mutation-type';
-import * as PoAddress from '../../api/PoAddress';
+import * as PoAddress from '../../api/PoAddress'
 
 export default {
   async deleteAddress({ commit, dispatch }, params) {

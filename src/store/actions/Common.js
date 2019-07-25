@@ -10,7 +10,7 @@ export default {
     console.log('findUserList', message, data)
 
     if (!error && code == 200) {
-      // dispatch('findDeviceList') // -- CALL CURRENT MODULE API METHOD (调用当前模块的API方法) --
+      dispatch('findDeviceList') // -- CALL CURRENT MODULE API METHOD (调用当前模块的API方法) --
       // dispatch('Common/findDeviceList', null, {root: true}) // -- CALL NOT CURRENT MODULE API METHOD (调用非当前模块的API方法) --
       commit(types.SET_USER_LIST, data) // -- commit: PUT API DATA  TO SET_USER_LIST ( commit:意思把API获取data赋给commit ) --
       return Promise.resolve({ error: null, message, data }) // -- Async RETURN API DATA AND FRONT-END USE {error,message,data} GET  ( 异步返回数据,前端使用{error,message,data}获取 ) --

@@ -1,10 +1,10 @@
 <template>
-  <section></section>
+  <section />
 </template>
 
 <script>
 export default {
-  name: 'app-nav'
+  name: 'AppNav'
 }
 </script>
 

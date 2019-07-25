@@ -36,7 +36,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" fixed="right">
-          <template slot-scope="scope">
+          <template>
             <div>
               <el-button-group>
                 <el-button size="mini">编辑</el-button>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'Index',
   data() {

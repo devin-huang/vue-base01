@@ -26,7 +26,7 @@
 export default {
   name: 'Index',
   props: {
-    data: { type: [String, Number] },
+    data: { type: [String, Number], default: null },
     regType: { type: RegExp, default: () => /^[1-9]\d*/ }
   },
   data() {

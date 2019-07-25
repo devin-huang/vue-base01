@@ -7,7 +7,7 @@ const filters = {
     }
     value = value.toString()
     return formatMoney(value, symbol, places, thousand, decimal)
-    function formatMoney (number, symbol, places, thousand, decimal) {
+    function formatMoney(number, symbol, places, thousand, decimal) {
       number = number || 0
       places = !isNaN((places = Math.abs(places))) ? places : 2
       symbol = symbol !== undefined ? symbol : '$'
@@ -34,7 +34,7 @@ const filters = {
 }
 
 Object.defineProperty(filters, 'install', {
-  value: (Vue, Option) => {
+  value: Vue => {
     Object.keys(filters).forEach(key => {
       Vue.filter(key, filters[key])
     })

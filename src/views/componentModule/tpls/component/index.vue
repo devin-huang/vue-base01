@@ -18,19 +18,19 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex'
 export default {
+  name: 'Index',
   inheritAttrs: false,
-  name: 'index',
   computed: {
     ...mapState(['deviceSeriesListByBrandId'])
   },
+  created() {
+    console.log('点击到指定TAB才开始加载里面内容/接口')
+    this.getDeviceSeriesListByBrandId(123) // 123 is ID
+  },
   methods: {
     ...mapActions('Common', ['getDeviceSeriesListByBrandId'])
-  },
-  created () {
-    console.log('点击到指定TAB才开始加载里面内容/接口');
-    this.getDeviceSeriesListByBrandId(123) // 123 is ID
   }
 }
 </script>

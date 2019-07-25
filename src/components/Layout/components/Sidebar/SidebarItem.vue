@@ -11,12 +11,12 @@
           <!--<span> {{ item.name }} </span>-->
           <!--</router-link>-->
           <!--常规-->
-          <i class="el-icon-location"></i>
+          <i class="el-icon-location" />
           <span> {{ item.name }} </span>
         </template>
         <el-menu-item-group
-          :key="index"
           v-for="(child, index) in item.children"
+          :key="index"
         >
           <template slot="title"
             >Group 1</template
@@ -28,12 +28,12 @@
             v-if="hasChildren(child)"
             :key="child.path"
             :routers="[child]"
-          ></sidebar-item>
+          />
           <!-- else -->
           <router-link
             v-else
-            :to="`${item.path}/${child.path}`"
             :key="child.key"
+            :to="`${item.path}/${child.path}`"
           >
             <el-menu-item :index="`${item.path}/${child.path}`">
               <span slot="title">{{ child.name }}</span>
@@ -45,7 +45,7 @@
       <router-link v-else :key="key" :to="item.path">
         <el-menu-item v-if="item.name" :index="item.path">
           <!-- v-if="item.name用于过滤隐藏的路由 -->
-          <i class="el-icon-menu"></i>
+          <i class="el-icon-menu" />
           <span slot="title"> {{ item.name }} </span>
         </el-menu-item>
       </router-link>
@@ -55,14 +55,14 @@
 
 <script>
 export default {
-  name: 'index',
-  props: { routers: { type: Array } },
+  name: 'Index',
+  props: { routers: { type: Array, default: () => [] } },
   methods: {
-    hasChildren (val) {
-      return !!(val.children && val.children.length);
+    hasChildren(val) {
+      return !!(val.children && val.children.length)
     },
-    handleOpen () {},
-    handleClose () {}
+    handleOpen() {},
+    handleClose() {}
   }
 }
 </script>

@@ -21,7 +21,7 @@ let http = axios.create({
 })
 
 // SET TOKEN
-function getCookie (cname) {
+function getCookie(cname) {
   var name = cname + '='
   var ca = document.cookie.split(';')
   for (var i = 0; i < ca.length; i++) {
@@ -35,7 +35,7 @@ function getCookie (cname) {
 }
 
 // SET AXIOS METHODS
-function _h (method) {
+function _h(method) {
   return (
     resPath,
     params,
@@ -51,11 +51,11 @@ function _h (method) {
     }
     let loadingInstance = loading
       ? Vue.prototype.$loading({
-        lock: true,
-        text: 'loading ...',
-        target: '.app-main',
-        fullscreen: true
-      })
+          lock: true,
+          text: 'loading ...',
+          target: '.app-main',
+          fullscreen: true
+        })
       : null
 
     return http[method](resPath, params, headers)
@@ -67,13 +67,11 @@ function _h (method) {
         if (response.data.code === '200') {
           return Promise.resolve(result)
         } else if (response.data.code === '507') {
-          Vue.prototype.$message &&
-            Vue.prototype.$message.error(result.message)
+          Vue.prototype.$message && Vue.prototype.$message.error(result.message)
           top.location.href = process.env.LOGIN_URL
         } else {
           loadingInstance && loadingInstance.close()
-          Vue.prototype.$message &&
-            Vue.prototype.$message.error(result.message)
+          Vue.prototype.$message && Vue.prototype.$message.error(result.message)
           result.error = true
           return Promise.resolve(result)
         }
