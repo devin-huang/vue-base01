@@ -271,7 +271,7 @@ resolve: {
 
 ```
 rm -rf node_modules
-npm add 
+npm install 
 npx vue-cli-service build --mode staging
 ```
 
