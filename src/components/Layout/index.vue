@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { AppNav, Sidebar, AppMain, AppFooter } from './components/layout';
+import { AppNav, Sidebar, AppMain, AppFooter } from './components/layout'
 export default {
-  name: 'index',
+  name: 'Index',
   components: {
     AppNav,
     Sidebar,

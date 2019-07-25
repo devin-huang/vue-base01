@@ -1,22 +1,22 @@
 <template>
   <section class="tab">
     <div class="tab-list">
-      <slot></slot>
+      <slot/>
     </div>
     <div class="tab-content">
-      <slot name="tabContent"></slot>
+      <slot name="tabContent"/>
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 export default {
-  name: 'index',
+  name: 'Index',
   methods: {
     ...mapActions('Common', ['findDeviceList'])
   },
-  created () {
+  created() {
     this.findDeviceList({ pageNum: 1 })
   }
 }

@@ -5,9 +5,9 @@
     <h4>UER THE NATIVE API GET DATA ( 使用原生API方式获取数据 )</h4>
     <el-select v-model="value1">
       <el-option
-        :class="{ danger: item.id == -1 }"
         v-for="(item, index) in useNativeAPIGetData"
         :key="index"
+        :class="{ danger: item.id == -1 }"
         :value="item.id"
         >{{ item }}</el-option
       >
@@ -16,9 +16,9 @@
     <h4>UER VUEX GET DATA ( 使用VUEX方式获取数据 )</h4>
     <el-select v-model="value2">
       <el-option
-        :class="{ danger: item.id == -1 }"
         v-for="(item, index) in userList"
         :key="index"
+        :class="{ danger: item.id == -1 }"
         :value="item.id"
         >{{ item }}</el-option
       >
@@ -26,15 +26,18 @@
   </section>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex';
-import permission from './permission';
+import { mapState, mapActions } from 'vuex'
+import permission from './permission'
 export default {
-  mixins: [permission],
   name: 'Api',
+  mixins: [permission],
   props: {
-    msg: String
+    msg: {
+      type: String,
+      default: null
+    }
   },
-  data () {
+  data() {
     return {
       value1: null,
       value2: null,
@@ -55,6 +58,16 @@ export default {
       }
     })
   },
+  async created() {
+    this.getNativeApiData()
+    this.getVuexData()
+
+    // Test New Http Method Get API
+    // 使用新得http方法获取Api得测试
+    this.findDeviceList({ pageNum: 0 })
+    this.getDeviceSeriesListByBrandId(60)
+    this.deleteAddress(60)
+  },
   methods: {
     ...mapActions('Common', [
       'findUserList',
@@ -68,26 +81,16 @@ export default {
       data.unshift({ id: '-1', loginName: 'Me', name: 'Me' })
       this.useNativeAPIGetData = data
       if (error) {
-        this.$message.error(message);
-      } else this.$message.success(message);
+        this.$message.error(message)
+      } else this.$message.success(message)
     },
     // ACCORDING TO THE VUEX GET DATA (使用VUEX获取数据)
-    async getVuexData () {
+    async getVuexData() {
       let { error, message } = await this.findUserList()
       error ? this.$message.error(message) : this.$message.success(message)
     }
-  },
-  async created() {
-    this.getNativeApiData()
-    this.getVuexData()
-
-    // Test New Http Method Get API
-    // 使用新得http方法获取Api得测试
-    this.findDeviceList({ pageNum: 0 })
-    this.getDeviceSeriesListByBrandId(60)
-    this.deleteAddress(60)
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .about {

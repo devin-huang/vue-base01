@@ -3,16 +3,16 @@
     <tab>
       <ul>
         <li
-          :class="{ active: item.name == activeName }"
-          :key="index"
           v-for="(item, index) in tabList"
+          :key="index"
+          :class="{ active: item.name == activeName }"
           @click="handleTabTitleClick(item.name)"
         >
           {{ item.label }}
         </li>
       </ul>
       <template slot="tabContent">
-        <div :is="activeName"></div>
+        <div :is="activeName" />
         <!--通过is加载指定组件-->
       </template>
     </tab>
@@ -20,15 +20,15 @@
 </template>
 
 <script>
-import Tab from '@/components/CustomeTab';
-import dnUtils from '@/views/componentModule/tpls/utils';
-import dnComponent from '@/views/componentModule/tpls/component';
-import dnTable from '@/views/componentModule/tpls/table';
+import Tab from '@/components/CustomeTab'
+import dnUtils from '@/views/componentModule/tpls/utils'
+import dnComponent from '@/views/componentModule/tpls/component'
+import dnTable from '@/views/componentModule/tpls/table'
 
 export default {
-  name: 'index',
+  name: 'Index',
   components: { Tab, dnUtils, dnComponent, dnTable },
-  data () {
+  data() {
     return {
       activeName: 'dnUtils',
       tabList: [
@@ -66,7 +66,7 @@ export default {
     }
   },
   methods: {
-    handleTabTitleClick (val) {
+    handleTabTitleClick(val) {
       this.activeName = val
     }
   }

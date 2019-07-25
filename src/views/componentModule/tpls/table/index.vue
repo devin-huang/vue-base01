@@ -1,22 +1,24 @@
 <template>
   <page>
     <div>
-      <el-button type="primary" @click="getTableData">--处理重复多次异步请求--</el-button>
+      <el-button type="primary" @click="getTableData"
+        >--处理重复多次异步请求--</el-button
+      >
       <el-table
+        v-lazy-render="handelLoadmore"
         stripe
         border
-        v-lazy-render="handelLoadmore"
         :header-row-style="headerRowStyle"
         style="width: 100%"
         :height="tableHeight - 110"
         :data="filteredData"
         :data-size="tableData.length"
       >
-        <el-table-column type="selection" fixed></el-table-column>
+        <el-table-column type="selection" fixed />
         <el-table-column label="ID">
           <template slot-scope="scope">
             <div>
-              <i class="el-icon-time"></i>
+              <i class="el-icon-time" />
               <span style="margin-left: 10px">{{ scope.row.deviceId }}</span>
             </div>
           </template>
@@ -33,9 +35,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="操作"
-                         fixed="right"
-        >
+        <el-table-column label="操作" fixed="right">
           <template slot-scope="scope">
             <div>
               <el-button-group>
@@ -49,15 +49,14 @@
     </div>
     <div slot="pageFooter">
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
         :current-page="1"
         :page-sizes="[15, 30, 60, 90]"
         :page-size="15"
         layout="total, sizes, prev, pager, next, jumper"
         :total="page.total"
-      >
-      </el-pagination>
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
     </div>
   </page>
 </template>
@@ -65,8 +64,8 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-  name: 'index',
-  data () {
+  name: 'Index',
+  data() {
     return {
       tableData: [],
       page: {
@@ -83,7 +82,7 @@ export default {
       clientHeight: state => state.App.clientHeight,
       tableHeight: state => state.App.tableHeight
     }),
-    filteredData () {
+    filteredData() {
       return this.tableData.filter((item, index) => {
         if (index < this.currentStartIndex) {
           return false
@@ -95,15 +94,18 @@ export default {
       })
     }
   },
+  created() {
+    this.getTableData()
+  },
   methods: {
-    handelLoadmore (currentStartIndex, currentEndIndex) {
+    handelLoadmore(currentStartIndex, currentEndIndex) {
       this.currentStartIndex = currentStartIndex
       this.currentEndIndex = currentEndIndex
     },
-    headerRowStyle () {
-      return "height:60px"
+    headerRowStyle() {
+      return 'height:60px'
     },
-    async getTableData (param) {
+    async getTableData(param) {
       let params = {
         pageNum: (param && param.num) || this.page.num,
         pageSize: (param && param.size) || this.page.size
@@ -116,21 +118,18 @@ export default {
       if (error) this.$message.error(message)
       else this.$message.success(message)
     },
-    handleSizeChange (size) {
+    handleSizeChange(size) {
       this.getTableData({
         num: this.page.num,
         size: size
       })
     },
-    handleCurrentChange (index) {
+    handleCurrentChange(index) {
       this.getTableData({
         num: index,
         size: this.page.size
       })
     }
-  },
-  created () {
-    this.getTableData()
   }
 }
 </script>

@@ -5,7 +5,7 @@ import clickOutSide from './click-out-side'
 import lazyRender from './lazy-render'
 
 export default {
-  install (Vue, options) {
+  install(Vue) {
     Vue.directive('click-out-side', clickOutSide)
     Vue.directive('lazy-render', lazyRender)
   }

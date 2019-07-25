@@ -33,7 +33,17 @@ export const listPoMenu = () => {
           href: '/component',
           target: null,
           icon: null,
-          childrenList: []
+          childrenList: [
+            {
+              id: 6103,
+              parentId: 6003,
+              name: 'index',
+              sort: 30,
+              href: null,
+              target: null,
+              icon: null
+            }
+          ]
         },
         {
           id: 6002,
@@ -43,7 +53,15 @@ export const listPoMenu = () => {
           href: '/api',
           target: null,
           icon: null,
-          childrenList: []
+          childrenList: [
+            {
+              id: 6102,
+              parentId: 6002,
+              name: 'index',
+              sort: 30,
+              href: null
+            }
+          ]
         },
         {
           id: 6004,
@@ -73,7 +91,17 @@ export const listPoMenu = () => {
           sort: 130,
           href: '/webpack',
           target: null,
-          icon: null
+          icon: null,
+          childrenList: [
+            {
+              id: 6105,
+              parentId: 6005,
+              name: 'index',
+              sort: 30,
+              href: null,
+              childrenList: []
+            }
+          ]
         }
       ]
     }

@@ -4,16 +4,17 @@
     <h4>自动将src/assets/下静态资源打包</h4>
     <section class="webpackStyle">
       <div>
+        <img class="htmlType" src="../../assets/1.jpg" width="50px" />
         HTML Insert:
         <img class="htmlType" src="../../assets/hello.png" width="50px" />
       </div>
       <div>
         CSS Insert:
-        <div class="cssType"></div>
+        <div class="cssType" />
       </div>
       <div>
         JS Insert:
-        <div class="jsType"></div>
+        <div class="jsType" />
       </div>
     </section>
     <section class="css3">
@@ -23,19 +24,19 @@
       </div>
       <div class="icon">
         <span>FontAWSome:</span>
-        <i class="fas fa-address-card fa-lg"></i>
-        <i class="fab fa-amazon fa-lg"></i>
-        <i class="fab fa-font-awesome fa-lg"></i>
-        <i class="fas fa-arrow-down" style="color: Dodgerblue;"></i>
-        <i class="fas fa-stroopwafel fa-spin"></i>
+        <i class="fas fa-address-card fa-lg" />
+        <i class="fab fa-amazon fa-lg" />
+        <i class="fab fa-font-awesome fa-lg" />
+        <i class="fas fa-arrow-down" style="color: Dodgerblue;" />
+        <i class="fas fa-stroopwafel fa-spin" />
         <i
           class="fas fa-snowman"
           data-fa-transform="rotate-90"
           style="background:MistyRose"
-        ></i>
+        />
         <span class="fa-layers fa-fw" style="background:MistyRose">
-          <i class="fas fa-circle" style="color:Tomato"></i>
-          <i class="fa-inverse fas fa-times" data-fa-transform="shrink-6"></i>
+          <i class="fas fa-circle" style="color:Tomato" />
+          <i class="fa-inverse fas fa-times" data-fa-transform="shrink-6" />
         </span>
       </div>
     </section>
@@ -44,8 +45,8 @@
 
 <script>
 export default {
-  name: 'index',
-  data () {
+  name: 'Index',
+  data() {
     return {
       logo: null
     }
@@ -53,14 +54,14 @@ export default {
   watch: {
     logo: {
       immediate: true,
-      handler (val) {
+      handler() {
         this.$nextTick(() => {
-          let imgUrl = require('../../assets/hello.png');
+          let imgUrl = require('../../assets/hello.png')
           let img = new Image()
-          img.style.width = '100%';
+          img.style.width = '100%'
           img.src = imgUrl
           document.querySelector('.jsType').appendChild(img)
-        });
+        })
       }
     }
   }
@@ -68,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.webpackStyle /deep/ {
+.webpackStyle >>> {
   display: flex;
   & div {
     flex-grow: 1;
@@ -76,7 +77,7 @@ export default {
       width: 100px;
     }
     .cssType {
-      background-image: url("../../assets/hello.png");
+      background-image: url('../../assets/hello.png');
       background-size: 35%;
       @extend .jsType;
     }
@@ -88,7 +89,7 @@ export default {
     }
   }
 }
-.css3 /deep/ {
+.css3 >>> {
   height: 150px;
   display: flex;
   align-items: flex-end;

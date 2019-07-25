@@ -17,7 +17,7 @@
     </div>
     <div>
       <el-tag>2.click outside</el-tag>
-      <div class="inside" v-click-out-side="handleCancel">
+      <div v-click-out-side="handleCancel" class="inside">
         <h4>
           外部关闭对象 | 点击次数: <b style="color:red">{{ num }}</b>
         </h4>
@@ -31,7 +31,7 @@
         暴露el-datepicker属性方法在外层
       </div>
       <div>
-        <date-picker v-model="test"></date-picker>
+        <date-picker v-model="test" />
       </div>
     </div>
   </div>
@@ -39,27 +39,27 @@
 
 <script>
 // @ is an alias to /src
-import inputCheck from "@/components/inputCheck";
-import DatePicker from "@/components/DatePicker";
+import inputCheck from '@/components/InputCheck'
+import DatePicker from '@/components/DatePicker'
 
 export default {
-  name: 'home',
-  data () {
+  name: 'Home',
+  components: {
+    inputCheck,
+    DatePicker
+  },
+  data() {
     return {
       num: 0,
       test: '2016-05-02'
     }
   },
-  components: {
-    inputCheck,
-    DatePicker
-  },
   methods: {
-    handleCancel (e) {
+    handleCancel() {
       ++this.num
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .main {

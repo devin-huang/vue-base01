@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Vue from 'vue'
+import Router from 'vue-router'
+import Layout from './components/Layout'
 
 Vue.use(Router)
 
@@ -12,18 +12,23 @@ export const asyncRouterMap = {
   // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    // { path: "*", component: PageNotFound },  // 404
     {
       path: '/',
-      // name: 'Home',
-      component: Home,
       redirect: '/component'
-      // meta: { title: 'home', icon: 'example' }
     },
     {
       path: '/component',
       name: 'Component',
-      component: () => import('./views/componentModule')
+      component: Layout,
+      children: [
+        {
+          path: '',
+          name: 'componentModule',
+          meta: { requiresAuth: true },
+          component: () => import('@/views/componentModule/')
+          // meta: { title: 'home', icon: 'example' }
+        }
+      ]
     },
     {
       path: '/api',
@@ -31,16 +36,25 @@ export const asyncRouterMap = {
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('./views/apiModule/index.vue')
+      component: Layout,
+      children: [
+        {
+          path: '',
+          name: 'index',
+          meta: { requiresAuth: true },
+          component: () => import('./views/apiModule/index.vue')
+        }
+      ]
     },
     {
       path: '/route',
       name: 'Route',
-      component: () => import('./views/routeModule'),
+      component: Layout,
       children: [
         {
           path: 'requiresAuth',
           name: 'RequiresAuth',
+          component: () => import('./views/routeModule'),
           meta: { requiresAuth: true }
         }
       ]
@@ -48,13 +62,24 @@ export const asyncRouterMap = {
     {
       path: '/webpack',
       name: 'Webpack',
-      component: () => import('./views/webpackModule')
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: Layout,
+      children: [
+        {
+          path: '',
+          name: 'index',
+          meta: { requiresAuth: true },
+          component: () => import('./views/webpackModule/index.vue')
+        }
+      ]
     }
   ]
 }
 
 const router = new Router({
-  routes: constantRouterMap
+  routes: asyncRouterMap.routes
 })
 
 export default router

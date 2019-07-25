@@ -1,8 +1,8 @@
 /**
  * Created By Devin on 2018/12/19
  */
-import * as types from '../mutation-type';
-import * as PoCommon from '../../api/PoCommon';
+import * as types from '../mutation-type'
+import * as PoCommon from '../../api/PoCommon'
 
 export default {
   async findUserList({ commit, dispatch }, params) {
@@ -20,9 +20,7 @@ export default {
     }
   },
   async findDeviceList({ commit }, params) {
-    const { code, error, data, message } = await PoCommon.findDeviceList(
-      params
-    )
+    const { code, error, data, message } = await PoCommon.findDeviceList(params)
     console.log('findDeviceList', message, data)
     if (!error && code == 200) {
       commit(types.SET_DEVICE_LIST, data)

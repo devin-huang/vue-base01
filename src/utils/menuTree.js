@@ -2,7 +2,7 @@
  * Created By Devin on 2019/01/23
  */
 
-export function toTree (remoteRouters, localRouters) {
+export function toTree(remoteRouters, localRouters) {
   const res = []
   remoteRouters.forEach(remote => {
     let _item = hasPermission(remote, localRouters)
@@ -17,6 +17,6 @@ export function toTree (remoteRouters, localRouters) {
   return res
 }
 
-function hasPermission (remote, localRouters) {
+function hasPermission(remote, localRouters) {
   return localRouters.filter(local => local.name === remote.name)[0]
 }

@@ -10,7 +10,7 @@ Object.defineProperty(api, 'install', {
   writable: false,
   enumerable: false,
   configurable: false,
-  value: (Vue, Option) => {
+  value: Vue => {
     Vue.$api = api
     Vue.prototype.$api = api
   }

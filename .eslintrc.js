@@ -1,40 +1,31 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'commonjs': true,
-    'es6': true
+  root: true,
+  env: {
+    node: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
-    'eslint:recommended',
-    'standard'
+    'plugin:vue/strongly-recommended',
+    'plugin:vue/recommended',
+    '@vue/prettier'
   ],
-  'parserOptions': {
-    parser: 'babel-eslint',
-    'ecmaFeatures': {
-      'jsx': true
-    },
-    'ecmaVersion': 2015,
-    'sourceType': 'module'
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always'
+        },
+        svg: 'always',
+        math: 'always'
+      }
+    ]
   },
-  'rules': {
-    'indent': [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'windows'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'never'
-    ],
-    'no-console': 'off',
-    'eqeqeq': 'warn'
+  parserOptions: {
+    parser: 'babel-eslint'
   }
 }

@@ -7,16 +7,16 @@
 <template>
   <section>
     <el-input
-      v-bind="$attrs"
       v-model.trim="val"
+      v-bind="$attrs"
       @change.native="handleChange"
       @input.native="handleKeyup"
     >
       <template slot="prepend">
-        <slot name="prepend"></slot>
+        <slot name="prepend" />
       </template>
       <template slot="append">
-        <slot name="append"></slot>
+        <slot name="append" />
       </template>
     </el-input>
   </section>
@@ -24,12 +24,12 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'Index',
   props: {
     data: { type: [String, Number] },
     regType: { type: RegExp, default: () => /^[1-9]\d*/ }
   },
-  data () {
+  data() {
     return {
       val: null
     }
@@ -37,24 +37,24 @@ export default {
   watch: {
     data: {
       immediate: true,
-      handler (val) {
+      handler(val) {
         this.val = val
       }
     }
   },
   methods: {
-    handleStrChange () {
-      let val = this.val ? this.val : '';
+    handleStrChange() {
+      let val = this.val ? this.val : ''
       let reg = new RegExp(this.regType)
-      return (this.val = val.match(reg) ? val.match(reg)[0] : '');
+      return (this.val = val.match(reg) ? val.match(reg)[0] : '')
     },
-    handleChange () {
+    handleChange() {
       if (this.regType) {
         let param = this.handleStrChange()
         this.$emit('change', param) // 等同于el-input change
       }
     },
-    handleKeyup () {
+    handleKeyup() {
       if (this.regType) {
         let param = this.handleStrChange()
         this.$emit('input', param)
@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section /deep/ {
+section >>> {
   display: inline-block;
   position: relative;
 }

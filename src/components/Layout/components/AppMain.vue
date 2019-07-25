@@ -1,13 +1,13 @@
 <template>
   <app-container>
-    <router-view></router-view>
+    <router-view />
   </app-container>
 </template>
 
 <script>
-import AppContainer from './Container';
+import AppContainer from './Container'
 export default {
-  name: 'app-main',
+  name: 'AppMain',
   components: { AppContainer }
 }
 </script>
