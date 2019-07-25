@@ -267,4 +267,11 @@ resolve: {
   }
 ```
 
+# jenlins (staging环境)
+
+```
+rm -rf node_modules
+npm add 
+npx vue-cli-service build --mode staging
+```
 
