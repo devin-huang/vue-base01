@@ -48,13 +48,11 @@
 
 <script>
 // @ is an alias to /src
-import inputCheck from '@/components/InputCheck'
 import DatePicker from '@/components/DatePicker'
 
 export default {
   name: 'Home',
   components: {
-    inputCheck,
     DatePicker
   },
   data() {
