@@ -1,33 +1,33 @@
 <template>
   <section class="sys-container">
-    <slot />
+    <slot></slot>
   </section>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 export default {
-  name: 'AppContainer',
-  mounted() {
-    this.loadMainHeight()
-    this.resizeMainHeight()
-  },
+  name: 'app-container',
   methods: {
     ...mapActions('App', ['setClientHeight']),
-    loadMainHeight() {
+    loadMainHeight () {
       window.addEventListener('load', () => {
         let mainHeight = this.$el.clientHeight
         this.setClientHeight(mainHeight)
-      })
+      });
     },
-    resizeMainHeight() {
+    resizeMainHeight () {
       window.addEventListener('resize', () => {
         let mainHeight = this.$el.clientHeight
         this.setClientHeight(mainHeight)
-      })
+      });
     }
+  },
+  mounted () {
+    this.loadMainHeight()
+    this.resizeMainHeight()
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

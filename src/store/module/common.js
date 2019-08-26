@@ -12,13 +12,13 @@ const common = {
     deviceSeriesList: []
   },
   mutations: {
-    [types.SET_USER_LIST](state, userList) {
+    [types.SET_USER_LIST] (state, userList) {
       state.userList = userList
     },
-    [types.SET_DEVICE_LIST](state, deviceList) {
+    [types.SET_DEVICE_LIST] (state, deviceList) {
       state.deviceList = deviceList
     },
-    [types.SET_DEVICE_SERIES_LIST](state, deviceSeriesList) {
+    [types.SET_DEVICE_SERIES_LIST] (state, deviceSeriesList) {
       state.deviceSeriesList = deviceSeriesList
     }
   },

@@ -1,10 +1,10 @@
 <template>
   <section class="tab">
     <div class="tab-list">
-      <slot />
+      <slot/>
     </div>
     <div class="tab-content">
-      <slot name="tabContent" />
+      <slot name="tabContent"/>
     </div>
   </section>
 </template>
@@ -13,11 +13,11 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'Index',
-  created() {
-    this.findDeviceList({ pageNum: 1 })
-  },
   methods: {
     ...mapActions('Common', ['findDeviceList'])
+  },
+  created() {
+    this.findDeviceList({ pageNum: 1 })
   }
 }
 </script>

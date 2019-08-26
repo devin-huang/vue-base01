@@ -1,12 +1,12 @@
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 
 const Mixins = {
   methods: {
-    print(ref) {
+    print (ref) {
       let subOutputRankPrint = this.$refs[ref]
       let newContent = subOutputRankPrint.innerHTML
       let oldContent = document.body.innerHTML
-      document.body.style.padding = '10px'
+      document.body.style.padding = '10px';
       document.body.innerHTML = newContent
       window.print()
       window.location.reload()

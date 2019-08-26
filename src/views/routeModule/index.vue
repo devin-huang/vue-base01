@@ -21,8 +21,8 @@
 
 <script>
 export default {
-  name: 'Index',
-  data() {
+  name: 'index',
+  data () {
     return {}
   }
 }

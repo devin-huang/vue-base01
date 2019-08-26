@@ -1,5 +1,14 @@
 <template>
   <div class="main">
+    <h2>移动端优化：将上传大图片通过CANVAS转变成小图</h2>
+    <div id="upladArea">
+      <input
+        id="uploadId"
+        type="file"
+        name="upload"
+        @change="handleUploadSize"
+      />
+    </div>
     <h2>utils base elementUI develop (工具基于elementUI开发)</h2>
     <div>
       <el-tag>1.input check (输入校验)</el-tag>
@@ -51,12 +60,46 @@ export default {
   data() {
     return {
       num: 0,
-      test: '2016-05-02'
+      test: '2016-05-02',
+      value: null
     }
   },
   methods: {
     handleCancel() {
       ++this.num
+    },
+    handleUploadSize(e) {
+      let upload = document.querySelector('#uploadId')
+      console.log(e, upload.files[0], 'fileList')
+      for (let file of upload.files) {
+        let read = new FileReader()
+        console.log(read.readAsDataURL(file), file)
+        read.onload = function(ev) {
+          console.log(ev)
+          let image = new Image()
+          image.src = ev.target.result
+
+          var Canvas = document.createElement('Canvas')
+          //定义image 事件//base64地址图片加载完毕后
+          var context = Canvas.getContext('2d')
+          image.onload = function() {
+            var originWIDth = this.width
+            var originHeight = this.height
+            console.log(originWIDth, originHeight)
+            if (file.size > 1024 * 100) {
+              Canvas.height = 200
+              context.drawImage(image, 0, 0, 300, 300)
+              var dataURL = Canvas.toDataURL(file.type, 0.1)
+
+              let upladArea = document.querySelector('#upladArea')
+              let img = document.createElement('IMG')
+              img.setAttribute('src', dataURL)
+              upladArea.insertBefore(img, upload)
+              console.log(dataURL)
+            }
+          }
+        }
+      }
     }
   }
 }

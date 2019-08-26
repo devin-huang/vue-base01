@@ -24,7 +24,9 @@ export const findUserList = () => {
  * Get Device Series List By Brand Id
  */
 export const getDeviceSeriesListByBrandId = ({ brandId }) => {
-  return get(`/admin/po/common/getDeviceSeriesListByBrandId?brandId=${brandId}`)
+  return get(
+    `/admin/po/common/getDeviceSeriesListByBrandId?brandId=${brandId}`
+  )
 }
 
 export const listPoMenu = () => {

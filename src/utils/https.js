@@ -3,7 +3,7 @@
  */
 
 import axios from 'axios'
-// import QS from 'qs'
+import QS from 'qs'
 import { Message } from 'element-ui'
 import router from '@/router'
 import store from '@/store'
@@ -31,7 +31,7 @@ let cancelToken = axios.CancelToken
 let removePending = config => {
   for (let p in pending) {
     if (pending[p].url === config.url + '&' + config.method) {
-      // 执行取消操作
+      // 执行取消操作(底层是通过promise改变状态值触发XMLHttprequire abort停止请求)
       pending[p].cancel()
       // 把这条记录从数组中移除
       pending.splice(p, 1)

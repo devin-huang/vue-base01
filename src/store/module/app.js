@@ -2,7 +2,7 @@
  * Created By Devin on 2018/12/25
  */
 import Cookies from 'js-cookie'
-// import * as types from '../mutation-type'
+import * as types from '../mutation-type'
 
 const app = {
   namespaced: true,
@@ -25,13 +25,13 @@ const app = {
     }
   },
   actions: {
-    setClientHeight({ commit }, height) {
+    setClientHeight ({ commit }, height) {
       commit('SET_CLIENT_HEIGHT', height)
     },
-    setTableHeight({ commit }, height) {
+    setTableHeight ({ commit }, height) {
       commit('SET_TABLE_HEIGHT', height)
     },
-    setUser({ commit }, user) {
+    setUser ({ commit }, user) {
       Cookies.set('po-admin-user-name', user.name)
       commit('SET_USER', user)
     }

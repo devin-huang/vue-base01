@@ -56,7 +56,7 @@
 <script>
 export default {
   name: 'Index',
-  props: { routers: { type: Array, default: () => [] } },
+  props: { routers: { type: Array } },
   methods: {
     hasChildren(val) {
       return !!(val.children && val.children.length)
