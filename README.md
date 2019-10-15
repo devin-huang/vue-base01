@@ -267,6 +267,13 @@ resolve: {
   }
 ```
 
+### cannot find module 'prettier'
+
+```
+npm uninstall prettier
+npm install prettier
+```
+
 # jenlins (staging环境)
 
 ```
