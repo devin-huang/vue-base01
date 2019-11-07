@@ -108,9 +108,13 @@ this.$parent.fn()
 2.  eventBus 定义全局变量 [使用方式](https://alligator.io/vuejs/global-event-bus/)
 3.  $attrs
     $listeners
-    inputListeners （合并父级添加所有的监听器与子级自定义监听器）
     inheritAttrs
 ```
+
+> 注意: inputListeners （合并父级添加所有的监听器与子级自定义监听器）
+
+![](https://github.com/devin-huang/devin-huang.github.io/raw/master/img/pubilc/vueDemo/linster.png)
+
 
 # layout
 
