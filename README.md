@@ -59,21 +59,21 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # vuex
 
-	1.应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态(便于SPA多层级组件间依赖于同一状态值, 刷新即清空VUEX)
+  1.应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态(便于SPA多层级组件间依赖于同一状态值, 刷新即清空VUEX)
 
   2.dispatch 调用action中函数(可含异步处理)  / commit 调用mutation中函数(更改 Vuex 的 store 的状态的唯一方法)
 
   3.
-	```
-	{
-	  state                      // 状态值
-	  mutation                   // 状态值方法
-	  action                     // 处理函数（包含触发commit -> 改变状态值）
-	}
-	src/store.js 实例化VUEX对象
-	```
+  ```
+  {
+    state                      // 状态值
+    mutation                   // 状态值方法
+    action                     // 处理函数（包含触发commit -> 改变状态值）
+  }
+  src/store.js 实例化VUEX对象
+  ```
 
-	4.根据3的方式保存的对象将通过对应的 mapState / mapActions / mapGetter / mapMutation 获取值 或 函数
+  4.根据3的方式保存的对象将通过对应的 mapState / mapActions / mapGetter / mapMutation 获取值 或 函数
 
 ### action
 
