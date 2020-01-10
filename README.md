@@ -236,7 +236,13 @@ this.$parent.fn()
   
 	dist目录用命令行运行 http-server （注意是在dist目录运行,压缩后会http请求路径会自动切换到生产环境，生产环境在utils/https.js配置）
 
-???如何切换部署环境??
+   切换部署环境
+   	1. 参考 `RESTful_API`项目的 webpack设置
+	2. 如果使用VUE-CLI3则 `--mode production` 即可
+	
+   图片引用 (直接引用的路径无法正确获取资源 或 编译BASE64)
+   	1. require(`@/assets/**.png`)
+	2. 如果使用VUE-CLI3的图片资源在public中 `${process.env.BASE_URL}/images/**.png` 即可
 
 # Storage
 
