@@ -219,7 +219,7 @@ this.$parent.fn()
 
   安装第三方库依赖的方式（唯有引用时才会去）/ 生产环境清除log/debug等
 
-  配置各个环境变量：根路径 / 图片路径 / login路径 等
+- 配置各个环境变量：根路径 / 图片路径 / login路径 等
   
 	npm run build 报错
 	
@@ -236,13 +236,18 @@ this.$parent.fn()
   
 	dist目录用命令行运行 http-server （注意是在dist目录运行,压缩后会http请求路径会自动切换到生产环境，生产环境在utils/https.js配置）
 
-   切换部署环境
+- 切换部署环境
    	1. 参考 `RESTful_API`项目的 webpack设置
 	2. 如果使用VUE-CLI3则 `--mode production` 即可
 	
-   图片引用 (直接引用的路径无法正确获取资源 或 编译BASE64)
+- 图片引用 (直接引用的路径无法正确获取资源 或 编译BASE64)
    	1. require(`@/assets/**.png`)
 	2. 如果使用VUE-CLI3的图片资源在public中 `${process.env.BASE_URL}/images/**.png` 即可
+	
+- `*.min.js from UglifyJs`
+	UglifyJs 在处理 webpack 构建的 js 文件时出错原因就是文件里存在es6代码，而 UglifyJs 只能处理 ECMAScript 5代码;
+	处理方式: `/node_modules/*`默认被exclude，使用`babel-loader`的 include 手动添加需要解析文件即可;
+	参考: https://juejin.im/post/5d24619fe51d451061721158
 
 # Storage
 
