@@ -23,14 +23,66 @@
         >{{ item }}</el-option
       >
     </el-select>
+    <h4> JSX -- Dialog --</h4>
+    <el-row :gutter="20">
+      <el-col :span="14">
+        <div class="grid-content bg-purple">
+          使用手动render
+        </div>
+      </el-col>
+      <el-col :span="10">
+        <div class="grid-content bg-purple">
+          <el-button @click="handleShowSwitch"> Dialog </el-button>
+        </div>
+      </el-col>
+
+      <el-col :span="14">
+        <div class="grid-content bg-purple">
+          使用手动异步加载render
+        </div>
+      </el-col>
+      <el-col :span="10">
+        <div class="grid-content bg-purple">
+          <el-button @click="handleShowAsyncDialog"> Async Dialog </el-button>
+        </div>
+      </el-col>
+
+      <el-col :span="14">
+        <div class="grid-content bg-purple">
+          使用 Element.UI 原生组件
+        </div>
+      </el-col>
+      <el-col :span="10">
+        <div class="grid-content bg-purple">
+          <el-button @click="handleShowAsyncInput"> Native Input </el-button>
+        </div>
+      </el-col>
+
+      <el-col :span="14">
+        <div class="grid-content bg-purple">
+          直接jsx 转 vnode
+        </div>
+      </el-col>
+      <el-col :span="10">
+        <div class="grid-content bg-purple">
+          <el-button @click="handleJSXtoVnode"> handleJSXtoVnode </el-button>
+        </div>
+      </el-col>
+    </el-row>
+
   </section>
 </template>
 <script>
+import { showSwitch, showAsyncDataPicker, showAsyncInput } from '@/components/Dialog'
+import DatePicker from '../../components/DatePicker'
 import { mapState, mapActions } from 'vuex'
 import permission from './permission'
 export default {
   name: 'Api',
   mixins: [permission],
+  components: {
+    [DatePicker.name]: DatePicker,
+  },
   props: {
     msg: {
       type: String,
@@ -88,6 +140,25 @@ export default {
     async getVuexData() {
       let { error, message } = await this.findUserList()
       error ? this.$message.error(message) : this.$message.success(message)
+    },
+    handleShowSwitch () {
+      showSwitch([
+        {label: '用户管理', name: 'first'},
+        {label: '配置管理', name: 'second'}
+      ], (tab, event) => {
+        console.log(tab, event, 'TAB-CLICK');
+      })
+    },
+    handleShowAsyncDialog () {
+      showAsyncDataPicker('dates', '选择日期' , ()=>{})
+    },
+    handleShowAsyncInput () {
+      showAsyncInput()
+    },
+    handleJSXtoVnode () {
+      debugger
+      const cpt = <div name={'DEVIN'}> 123 {true ? 'name' : 'NAME'}</div>
+      console.log(cpt)
     }
   }
 }
