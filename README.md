@@ -197,13 +197,13 @@ this.$parent.fn()
   utils/mixin （For Example：登陆用户 / 每页默认参数等 / 打印）
   组件内：Mixins: [] 存放权限控制
 
-# vscode Eslint prettierrc
+# VScode Eslint prettierrc
 
-- vscode中安装Eslint与prettierrc
+- VScode中安装Eslint与prettierrc
 
 - 配置`.eslintrc`与`.prettierrc` 规则与格式
 
-- vscode 文件(file) -> 首选项(prefercences) -> 设置(setting) -> 文本编辑(Text Editor) -> 格式(formatting) -> 保存格式(formatting on save) 格式类型(formatting on type) 勾选上
+- VScode -> 文件(file) -> 首选项(prefercences) -> 设置(setting) -> 文本编辑(Text Editor) -> 格式(formatting) -> 保存格式(formatting on save) 格式类型(formatting on type) 勾选上
 
 # WebStorm + ESlint
 
